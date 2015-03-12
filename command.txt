@@ -1,0 +1,15 @@
+git clone https://github.com/TeamName/ProjectName
+
+cd ProjectName
+
+git add FileName.subfilename
+
+git commit FileName.subfilename -m "Your words."
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git commit FileName.subfilename -m "Your words."
+
+git push origin master
+git pull origin master
+
+login your account
