@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/room"
+        android:layout_weight="0.88" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="284dp"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="210dp"
+            android:layout_height="78dp"
+            android:text="創建房間"
+            android:id="@+id/button6"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" />
+
+        <Button
+            android:layout_width="210dp"
+            android:layout_height="78dp"
+            android:text="進入房間"
+            android:id="@+id/button7"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" />
+
+        <Button
+            android:layout_width="210dp"
+            android:layout_height="78dp"
+            android:text="隨機對戰"
+            android:id="@+id/button8"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" />
+    </LinearLayout>
+
+</LinearLayout>
