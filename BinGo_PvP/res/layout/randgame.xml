@@ -20,29 +20,29 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
 
-                android:id="@+id/button" />
+                android:id="@+id/button1" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button2" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button3" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button4" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button5" />
         </LinearLayout>
 
@@ -52,28 +52,28 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button6" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button7" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button8" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button9" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button10" />
         </LinearLayout>
 
@@ -83,28 +83,28 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button11" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button12" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button13" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button14" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button15" />
         </LinearLayout>
 
@@ -114,28 +114,28 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button16" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button17" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button18" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button19" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button20" />
         </LinearLayout>
 
@@ -145,35 +145,38 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button21" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button22" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button23" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button24" />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:id="@+id/button25" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="52dp"></LinearLayout>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.73"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <LinearLayout
             android:orientation="horizontal"

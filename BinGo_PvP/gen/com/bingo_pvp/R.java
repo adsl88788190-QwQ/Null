@@ -27,8 +27,10 @@ public final class R {
         public static final int room=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080021;
+        public static final int Randombt=0x7f08001d;
+        public static final int action_settings=0x7f080024;
         public static final int button=0x7f080001;
+        public static final int button1=0x7f080022;
         public static final int button10=0x7f08000a;
         public static final int button11=0x7f08000b;
         public static final int button12=0x7f08000c;
@@ -49,7 +51,7 @@ public final class R {
         public static final int button26=0x7f08001a;
         public static final int button27=0x7f08001b;
         public static final int button28=0x7f08001c;
-        public static final int button29=0x7f08001f;
+        public static final int button29=0x7f080020;
         public static final int button3=0x7f080003;
         public static final int button4=0x7f080004;
         public static final int button5=0x7f080005;
@@ -57,10 +59,11 @@ public final class R {
         public static final int button7=0x7f080007;
         public static final int button8=0x7f080008;
         public static final int button9=0x7f080009;
-        public static final int imageView=0x7f08001e;
-        public static final int imageView2=0x7f08001d;
+        public static final int imageView=0x7f08001f;
+        public static final int imageView2=0x7f08001e;
         public static final int linearLayout=0x7f080000;
-        public static final int textView=0x7f080020;
+        public static final int textView=0x7f080021;
+        public static final int textView1=0x7f080023;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
