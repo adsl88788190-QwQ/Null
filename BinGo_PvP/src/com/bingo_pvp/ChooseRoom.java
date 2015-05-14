@@ -10,33 +10,39 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 
-public class SetActivity extends Activity {
-	Button Myselfbt,Randbt;
+public class ChooseRoom extends Activity {
+	Button CreateRoom,IntoRoom,RandRoom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.laout_set);
-        Randbt = (Button)findViewById(R.id.RandBt);
-        Randbt.setOnClickListener(new OnClickListener() {
+        setContentView(R.layout.layout_selectroom);
+        //創建房間
+        CreateRoom = (Button)findViewById(R.id.CreateRoom);
+        CreateRoom.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(SetActivity.this,RandomActivity.class);
-				startActivity(intent);		
 				
-
 			}
 		});
-        Myselfbt = (Button)findViewById(R.id.Myselfbt);
-        Myselfbt.setOnClickListener(new OnClickListener() {		
+        //進入房間
+        IntoRoom = (Button)findViewById(R.id.IntoRoom);
+        IntoRoom.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(SetActivity.this,MyselfActivity.class);
-				startActivity(intent);
+				
 			}
 		});
-        
+        //隨機對戰
+        RandRoom = (Button)findViewById(R.id.RandRoom);
+        RandRoom.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
     }
 
 
@@ -57,11 +63,5 @@ public class SetActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-    
-    @Override
-    protected void onResume() {
-    	// TODO Auto-generated method stub
-    	super.onResume();
     }
 }

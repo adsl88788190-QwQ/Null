@@ -32,7 +32,8 @@ public class Play extends Activity {
 			@Override
 			public void onClick(View v) {
 				//多人的intent 家豪負責
-				
+				Intent intent = new Intent(Play.this,ChooseRoom.class);
+				startActivity(intent);	
 			}
 		});
         //發表成績

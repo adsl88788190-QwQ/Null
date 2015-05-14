@@ -38,6 +38,10 @@
             android:name=".SinglePlayStart"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".ChooseRoom"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
