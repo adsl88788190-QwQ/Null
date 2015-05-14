@@ -26,8 +26,7 @@ public class SetActivity extends Activity {
 			}
 		});
         Myselfbt = (Button)findViewById(R.id.Myselfbt);
-        Myselfbt.setOnClickListener(new OnClickListener() {
-			
+        Myselfbt.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub

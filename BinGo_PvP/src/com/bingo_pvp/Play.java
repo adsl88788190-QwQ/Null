@@ -11,18 +11,38 @@ import android.widget.Button;
 
 
 public class Play extends Activity {
-	Button bt;
+	Button singlebt,multiplebt,sharebt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play);
-        bt = (Button)findViewById(R.id.Randombt);
-        bt.setOnClickListener(new OnClickListener() {
+        setContentView(R.layout.layout_start);
+        //單人模式
+        singlebt = (Button)findViewById(R.id.Singlebt);
+        singlebt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(Play.this,SetActivity.class);
+				//單人的intent 昶崴負責
+				Intent intent = new Intent(Play.this,SinglePlayStart.class);
 				startActivity(intent);			
+			}
+		});
+        //多人模式
+        multiplebt = (Button)findViewById(R.id.Multiplebt);
+        multiplebt.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//多人的intent 家豪負責
+				
+			}
+		});
+        //發表成績
+        sharebt = (Button)findViewById(R.id.Sharebt);
+        sharebt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//發表成績的intent 泰佑負責
+				
 			}
 		});
     }

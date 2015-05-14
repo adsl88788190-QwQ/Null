@@ -22,7 +22,7 @@
             android:layout_width="210dp"
             android:layout_height="78dp"
             android:text="單人遊戲"
-            android:id="@+id/button"
+            android:id="@+id/Singlebt"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.06" />
 
@@ -30,7 +30,7 @@
             android:layout_width="210dp"
             android:layout_height="78dp"
             android:text="多人遊戲"
-            android:id="@+id/button2"
+            android:id="@+id/Multiplebt"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.06" />
 
@@ -38,7 +38,7 @@
             android:layout_width="210dp"
             android:layout_height="78dp"
             android:text="發表戰績"
-            android:id="@+id/button3"
+            android:id="@+id/Sharebt"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.06" />
     </LinearLayout>

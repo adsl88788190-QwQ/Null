@@ -21,14 +21,7 @@ public class RandomActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.randgame);
-        if(!Cheese.boolean1){
-        	al = new ArrayList<String>();
-        	for(int i = 0;i<25;i++)
-        		al.add((i+1)+"");
-        }
-        else{
-        	al = Cheese.al;
-        }
+        al = Cheese.al;
         BT_Click();
     }
     
