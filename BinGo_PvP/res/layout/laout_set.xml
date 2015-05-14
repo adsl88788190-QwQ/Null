@@ -22,7 +22,7 @@
             android:layout_width="210dp"
             android:layout_height="78dp"
             android:text="自定義"
-            android:id="@+id/button4"
+            android:id="@+id/Myselfbt"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.06" />
 
@@ -30,7 +30,7 @@
             android:layout_width="210dp"
             android:layout_height="78dp"
             android:text="隨機"
-            android:id="@+id/button5"
+            android:id="@+id/RandBt"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.06" />
 

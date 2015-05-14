@@ -180,14 +180,14 @@
                 android:layout_height="100dp"
                 android:text="Rand"
                 android:layout_weight="1"
-                android:id="@+id/button26" />
+                android:id="@+id/randbt" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="Finsh"
                 android:layout_weight="1"
-                android:id="@+id/button27" />
+                android:id="@+id/finishbt" />
 
 
         </LinearLayout>

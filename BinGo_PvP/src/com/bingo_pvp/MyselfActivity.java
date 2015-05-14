@@ -13,23 +13,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 
-public class RandomActivity extends Activity {
+public class MyselfActivity extends Activity {
 	Button[] bt;
-	Button randbt,finishbt;
+	Button finishbt,clearbt,returnbt;
 	ArrayList<String> al= null;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.randgame);
-        if(!Cheese.boolean1){
-        	al = new ArrayList<String>();
-        	for(int i = 0;i<25;i++)
-        		al.add((i+1)+"");
-        }
-        else{
-        	al = Cheese.al;
-        }
-        BT_Click();
+        setContentView(R.layout.myselflayout);
+        al = new ArrayList<String>();
     }
     
     public void BT_Click(){
@@ -40,35 +32,38 @@ public class RandomActivity extends Activity {
         	String str = "button"+num;
         	int id = getResources().getIdentifier(str, "id", getPackageName());
         	bt[i] = (Button)findViewById(id);
-        	bt[i].setText(al.get(i));
         }
-    	//rand鍵
-        randbt = (Button)findViewById(R.id.randbt);
-        randbt.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				int t = new Random().nextInt(7);
-				for(;t>=0;t--)
-					Collections.shuffle(al);
-				for(int i = 0;i<25;i++)
-					bt[i].setText(al.get(i));
-			}
-		});
-       
-        //finish鍵
-        finishbt = (Button)findViewById(R.id.finishbt);
-        finishbt.setOnClickListener(new OnClickListener() {
+    	finishbt = (Button)findViewById(R.id.finishbt);
+    	finishbt.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Cheese.al = al;
-				Cheese.boolean1 = true;
-			finish();
+				finish();
 			}
 		});
+    	//清除所有
+    	clearbt = (Button)findViewById(R.id.clearbt);
+    	clearbt.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				for(Button button:bt)
+					button.setText("");
+			}
+		});
+    	//回上一步
+    	returnbt = (Button)findViewById(R.id.returnbt);
     }
-
+    public OnClickListener click = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Button bt = (Button)v;
+		}
+	};
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

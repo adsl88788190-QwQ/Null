@@ -11,12 +11,12 @@ import android.widget.Button;
 
 
 public class SetActivity extends Activity {
-	Button btMyself,Randbt;
+	Button Myselfbt,Randbt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laout_set);
-        Randbt = (Button)findViewById(R.id.button5);
+        Randbt = (Button)findViewById(R.id.RandBt);
         Randbt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -25,6 +25,17 @@ public class SetActivity extends Activity {
 				startActivity(intent);			
 			}
 		});
+        Myselfbt = (Button)findViewById(R.id.Myselfbt);
+        Myselfbt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(SetActivity.this,MyselfActivity.class);
+				startActivity(intent);
+			}
+		});
+        
     }
 
 
