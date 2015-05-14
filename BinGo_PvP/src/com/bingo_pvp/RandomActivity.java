@@ -16,23 +16,33 @@ import android.widget.Button;
 public class RandomActivity extends Activity {
 	Button[] bt;
 	Button randbt,finishbt;
-    @Override
+	ArrayList<String> al= null;
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.randgame);
-        //所有 棋子 的 位置
-        final ArrayList<String> al = new ArrayList<String>();
-        //中間的棋盤
+        if(!Cheese.boolean1){
+        	al = new ArrayList<String>();
+        	for(int i = 0;i<25;i++)
+        		al.add((i+1)+"");
+        }
+        else{
+        	al = Cheese.al;
+        }
+        BT_Click();
+    }
+    
+    public void BT_Click(){
+    	//中間的棋盤
         bt = new Button[25];
         for(int i = 0;i<25;i++){
-        	String num = (i+1)+"";
-        	al.add(num);
+        	String num = (i+1)+"";       	
         	String str = "button"+num;
         	int id = getResources().getIdentifier(str, "id", getPackageName());
         	bt[i] = (Button)findViewById(id);
-        	bt[i].setText(num);
+        	bt[i].setText(al.get(i));
         }
-        //rand鍵
+    	//rand鍵
         randbt = (Button)findViewById(R.id.button26);
         randbt.setOnClickListener(new OnClickListener() {
 			@Override
@@ -53,11 +63,11 @@ public class RandomActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Cheese.al = al;
+				Cheese.boolean1 = true;
 			finish();
 			}
 		});
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

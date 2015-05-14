@@ -170,14 +170,6 @@
                 android:id="@+id/button25" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.73"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"

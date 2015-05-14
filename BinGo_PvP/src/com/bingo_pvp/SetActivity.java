@@ -10,18 +10,18 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 
-public class Play extends Activity {
-	Button bt;
+public class SetActivity extends Activity {
+	Button btMyself,Randbt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play);
-        bt = (Button)findViewById(R.id.Randombt);
-        bt.setOnClickListener(new OnClickListener() {
+        setContentView(R.layout.laout_set);
+        Randbt = (Button)findViewById(R.id.button5);
+        Randbt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(Play.this,SetActivity.class);
+				Intent intent = new Intent(SetActivity.this,RandomActivity.class);
 				startActivity(intent);			
 			}
 		});
