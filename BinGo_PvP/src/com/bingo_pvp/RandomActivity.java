@@ -30,6 +30,7 @@ public class RandomActivity extends Activity {
         	String str = "button"+num;
         	int id = getResources().getIdentifier(str, "id", getPackageName());
         	bt[i] = (Button)findViewById(id);
+        	bt[i].setText(num);
         }
         //rand鍵
         randbt = (Button)findViewById(R.id.button26);
@@ -40,6 +41,8 @@ public class RandomActivity extends Activity {
 				int t = new Random().nextInt(7);
 				for(;t>=0;t--)
 					Collections.shuffle(al);
+				for(int i = 0;i<25;i++)
+					bt[i].setText(al.get(i));
 			}
 		});
        
