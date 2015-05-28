@@ -112,6 +112,7 @@ public class SinglePlayStart extends Activity {
     	BT_Click();
     }
     
+    //AI 設定
     public void AIcontrol(){
         Random rdm = new Random();
     }
