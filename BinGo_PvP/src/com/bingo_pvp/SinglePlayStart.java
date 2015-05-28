@@ -111,4 +111,8 @@ public class SinglePlayStart extends Activity {
         	al = Cheese.al;
     	BT_Click();
     }
+    
+    public void AIcontrol(){
+        Random rdm = new Random();
+    }
 }
