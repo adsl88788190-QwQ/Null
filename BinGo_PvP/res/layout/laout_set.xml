@@ -10,13 +10,13 @@
         android:id="@+id/imageView2"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/bingoselect"
-        android:layout_weight="0.88" />
+        android:layout_weight="1" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="284dp"
-        android:weightSum="1">
+        android:layout_weight="1">
 
         <Button
             android:layout_width="210dp"
@@ -24,7 +24,7 @@
             android:text="自定義"
             android:id="@+id/Myselfbt"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.06" />
+            android:layout_weight="1" />
 
         <Button
             android:layout_width="210dp"
@@ -32,7 +32,15 @@
             android:text="隨機"
             android:id="@+id/RandBt"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.06" />
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/Exit"
+             android:layout_width="210dp"
+            android:layout_height="78dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:text="返回" />
 
     </LinearLayout>
 

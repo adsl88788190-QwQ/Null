@@ -11,12 +11,12 @@ import android.widget.Button;
 
 
 public class SetActivity extends Activity {
-	Button Myselfbt,Randbt;
+	Button Myselfbt,Randbt,Exit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laout_set);
-        //隨機棋盤
+        //隨機棋盤偵聽
         Randbt = (Button)findViewById(R.id.RandBt);
         Randbt.setOnClickListener(new OnClickListener() {
 			@Override
@@ -28,7 +28,7 @@ public class SetActivity extends Activity {
 
 			}
 		});
-        //自定義期盤
+        //自定義棋盤偵聽
         Myselfbt = (Button)findViewById(R.id.Myselfbt);
         Myselfbt.setOnClickListener(new OnClickListener() {		
 			@Override
@@ -38,7 +38,15 @@ public class SetActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-        
+        //返回按鈕 偵聽
+        Exit = (Button)findViewById(R.id.Exit);
+        Exit.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
     }
 
 

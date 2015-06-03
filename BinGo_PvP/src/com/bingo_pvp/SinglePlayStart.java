@@ -66,7 +66,7 @@ public class SinglePlayStart extends Activity {
 				
 			}
 		});
-        //長按棋盤
+        //長按Layout
         Layout = (LinearLayout)findViewById(R.id.SingleLayout);
         Layout.setOnLongClickListener(new OnLongClickListener() {
 			@Override
@@ -102,15 +102,8 @@ public class SinglePlayStart extends Activity {
     protected void onResume() {
     	// TODO Auto-generated method stub
     	super.onResume();
-    	if(!Cheese.boolean1){
-        	al = new ArrayList<String>();
-        	for(int i=0;i<25;i++)
-        		al.add(((i+1)+""));
-        	Cheese.boolean1 = true;
-        	Cheese.al = al;
-        }else
-        	al = Cheese.al;
-    	BT_Click();
+    	
+    
     }
     
     //AI 設定

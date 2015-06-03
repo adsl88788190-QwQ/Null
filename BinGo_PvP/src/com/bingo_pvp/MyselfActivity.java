@@ -11,36 +11,50 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MyselfActivity extends Activity {
 	Button[] bt;
 	Button finishbt,clearbt,returnbt;
 	ArrayList<String> al= null;
+	private int count;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myselflayout);
         al = new ArrayList<String>();
+        //變數 表  第幾個 
+        count = 1;
+        //按鈕設定
+        BT_Click();
     }
     
     public void BT_Click(){
-    	//中間的棋盤
+    	//取得中間期盤的Resources
         bt = new Button[25];
         for(int i = 0;i<25;i++){
         	String num = (i+1)+"";       	
         	String str = "button"+num;
         	int id = getResources().getIdentifier(str, "id", getPackageName());
         	bt[i] = (Button)findViewById(id);
+        	bt[i].setOnClickListener(click);
         }
+        //設定結束按鈕
     	finishbt = (Button)findViewById(R.id.finishbt);
     	finishbt.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Cheese.al = al;
-				finish();
+				//無空的格子
+				if(count >25){
+					//設定完的鍵盤 存回
+					Cheese.al = al;
+					//結束
+					finish();
+				}else{
+					Toast.makeText(MyselfActivity.this, "還沒填完喔^^", Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
     	//清除所有
@@ -51,6 +65,7 @@ public class MyselfActivity extends Activity {
 				// TODO Auto-generated method stub
 				for(Button button:bt)
 					button.setText("");
+				count = 1;
 			}
 		});
     	//回上一步
@@ -62,6 +77,11 @@ public class MyselfActivity extends Activity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			Button bt = (Button)v;
+			if(count <= 25 && bt.getText().equals("")){
+				bt.setText(count+"");
+				count++;
+				
+			}
 		}
 	};
     @Override
