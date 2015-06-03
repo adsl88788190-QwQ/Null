@@ -16,6 +16,7 @@ public class SetActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laout_set);
+        //隨機棋盤
         Randbt = (Button)findViewById(R.id.RandBt);
         Randbt.setOnClickListener(new OnClickListener() {
 			@Override
@@ -27,6 +28,7 @@ public class SetActivity extends Activity {
 
 			}
 		});
+        //自定義期盤
         Myselfbt = (Button)findViewById(R.id.Myselfbt);
         Myselfbt.setOnClickListener(new OnClickListener() {		
 			@Override
