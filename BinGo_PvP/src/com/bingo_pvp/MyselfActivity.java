@@ -48,6 +48,10 @@ public class MyselfActivity extends Activity {
 			public void onClick(View v) {
 				//無空的格子
 				if(count >25){
+					for(Button button:bt){
+						String str = (String) button.getText();
+						al.add(str);
+					}
 					//設定完的鍵盤 存回
 					Cheese.al = al;
 					//結束

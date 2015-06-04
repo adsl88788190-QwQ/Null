@@ -21,7 +21,8 @@ public class RandomActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.randgame);
-        al = Cheese.al;
+        if(Cheese.al != null)
+        	al = Cheese.al;
         BT_Click();
     }
     
@@ -33,7 +34,10 @@ public class RandomActivity extends Activity {
         	String str = "button"+num;
         	int id = getResources().getIdentifier(str, "id", getPackageName());
         	bt[i] = (Button)findViewById(id);
-        	bt[i].setText(al.get(i));
+        	if(al != null)
+        		bt[i].setText(al.get(i));
+        	else
+        		bt[i].setText(i+"");
         }
     	//rand鍵
         randbt = (Button)findViewById(R.id.randbt);
