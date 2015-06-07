@@ -115,13 +115,18 @@ public class SinglePlayStart extends Activity {
     }
 
     int aiCount = 0;
-    int[] aiAllow = new int[12];
+    boolean[] aiAllow = new boolean[12];
+    //aiAllow[0]=[0,0],[1,1],[2,2][3,3],[4,4]
+    //       [1]=[0,4],[1,3],[2,2][2,3],[1,4]
+    //       [2-6]=橫線
+    //       [7-11]=直線
+    
     //ai 連線計數器
     public void aiCount(){
-        if((aiArray[0][0] == 1 && aiArray[1][1] == 1 && aiArray[2][2] == 1 && aiArray[3][3] == 1 && aiArray[4][4] == 1)){
+        if(aiAlow[0]&&(aiArray[0][0] == 1 && aiArray[1][1] == 1 && aiArray[2][2] == 1 && aiArray[3][3] == 1 && aiArray[4][4] == 1)){
             aiCount++;
         }
-        if((aiArray[0][4] == 1 && aiArray[1][3] == 1 && aiArray[2][2] == 1 && aiArray[3][1] == 1 && aiArray[4][0] == 1)){
+        if(aiAlow[1]&&(aiArray[0][4] == 1 && aiArray[1][3] == 1 && aiArray[2][2] == 1 && aiArray[3][1] == 1 && aiArray[4][0] == 1)){
             aiCount++;
         }
         for(int i = 0; i<aiArray.length; i++) {
