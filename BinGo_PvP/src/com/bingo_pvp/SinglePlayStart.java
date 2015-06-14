@@ -123,10 +123,10 @@ public class SinglePlayStart extends Activity {
     
     //ai 連線計數器
     public void aiCount(){
-        if(aiAlow[0]&&(aiArray[0][0] == 1 && aiArray[1][1] == 1 && aiArray[2][2] == 1 && aiArray[3][3] == 1 && aiArray[4][4] == 1)){
+        if(aiAllow[0]&&(aiArray[0][0] == 1 && aiArray[1][1] == 1 && aiArray[2][2] == 1 && aiArray[3][3] == 1 && aiArray[4][4] == 1)){
             aiCount++;
         }
-        if(aiAlow[1]&&(aiArray[0][4] == 1 && aiArray[1][3] == 1 && aiArray[2][2] == 1 && aiArray[3][1] == 1 && aiArray[4][0] == 1)){
+        if(aiAllow[1]&&(aiArray[0][4] == 1 && aiArray[1][3] == 1 && aiArray[2][2] == 1 && aiArray[3][1] == 1 && aiArray[4][0] == 1)){
             aiCount++;
         }
         for(int i = 0; i<aiArray.length; i++) {
