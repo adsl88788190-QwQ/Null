@@ -1,91 +1,64 @@
-package com.bingo_pvp;
+package com.example.soloqchess;
 
-import java.util.ArrayList;
 import java.util.Random;
 
+import android.R.integer;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 
-public class SinglePlayStart extends Activity {
-    Button[] bt;
-    Button Startbt;
-    ArrayList<String> al= null;
-    LinearLayout Layout;
-    int[][] aiArray = new int[5][5];
+public class MainActivity extends Activity {
 
+	//顯示ai的棋盤
+	TextView tv;
+	//儲存ai的陣列
+	int[][] aiArray = new int[5][5];
+	//判斷
+	boolean[][] aiArrayAllow = new boolean[5][5];
+	
+	//儲存ai的棋盤
+	String aiStr = "";
+	//毫無反應就只是個button
+	Button bt;
+	//ai隨機到的曙字
+	int aiGet = 0;
+	
+	boolean gamesetup = false;
+		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.singleplay);
-        if(!Cheese.boolean1){
-            al = new ArrayList<String>();
-            for(int i=0;i<25;i++)
-                al.add(((i+1)+""));
-            Cheese.boolean1 = true;
-            Cheese.al = al;
-        }else
-            al = Cheese.al;
-
-        BT_Click();
-    }
-
-    public void BT_Click(){
-        //中間的棋盤
-        bt = new Button[25];
-        for(int i = 0;i<25;i++){
-            String num = (i+1)+"";
-            String str = "button"+num;
-            int id = getResources().getIdentifier(str, "id", getPackageName());
-            bt[i] = (Button)findViewById(id);
-            bt[i].setText(al.get(i));
-            //長按棋盤 進入 設定 棋盤
-            bt[i].setOnLongClickListener(new OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    // 長按棋盤 進入 設定 棋盤
-                    Intent intent = new Intent(SinglePlayStart.this, SetActivity.class);
-                    startActivity(intent);
-                    return false;
-                }
-            });
-        }
-        //開始按鈕
-        Startbt = (Button)findViewById(R.id.Startbt);
-        Startbt.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //單人遊戲開始 昶崴負責
-
-            }
-        });
-        //長按Layout
-        Layout = (LinearLayout)findViewById(R.id.SingleLayout);
-        Layout.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                // 長按棋盤 進入 設定 棋盤
-                Intent intent = new Intent(SinglePlayStart.this, SetActivity.class);
-                startActivity(intent);
-                return false;
-            }
-        });
-
+        setContentView(R.layout.activity_main);
+        tv = (TextView)findViewById(R.id.textView1);
+        bt = (Button)findViewById(R.id.button1);
+		bt.setOnClickListener(new OnClickListener() {
+			
+			//按下button就讓ai挑一個變數
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Random ran = new Random();
+				aiGet = ran.nextInt(25)+1;
+				Log.d("aiGet", Integer.toString(aiGet));
+				aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
+				//Log.d("allow", Integer.toString((aiGet-1)/5)+" "+Integer.toString((aiGet-1)%5));				
+			}
+		});
+		setupText();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.play, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -100,42 +73,45 @@ public class SinglePlayStart extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-    @Override
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
-
-
-    }
-
-    //AI 設定
-    public void AIcontrol(){
-
-        Random rdm = new Random();
-    }
-
-    int aiCount = 0;
-    boolean[] aiAllow = new boolean[12];
-    //aiAllow[0]=[0,0],[1,1],[2,2][3,3],[4,4]
-    //       [1]=[0,4],[1,3],[2,2][2,3],[1,4]
-    //       [2-6]=橫線
-    //       [7-11]=直線
     
-    //ai 連線計數器
-    public void aiCount(){
-        if(aiAllow[0]&&(aiArray[0][0] == 1 && aiArray[1][1] == 1 && aiArray[2][2] == 1 && aiArray[3][3] == 1 && aiArray[4][4] == 1)){
-            aiCount++;
-        }
-        if(aiAllow[1]&&(aiArray[0][4] == 1 && aiArray[1][3] == 1 && aiArray[2][2] == 1 && aiArray[3][1] == 1 && aiArray[4][0] == 1)){
-            aiCount++;
-        }
-        for(int i = 0; i<aiArray.length; i++) {
-            if ((aiArray[i][0] == 1 && aiArray[i][1] == 1 && aiArray[i][2] == 1 && aiArray[i][3] == 1 && aiArray[i][4] == 1)){
-                aiCount++;
-            }
-            if ((aiArray[0][i] == 1 && aiArray[1][i] == 1 && aiArray[2][i] == 1 && aiArray[3][i] == 1 && aiArray[4][i] == 1)){
-                aiCount++;
-            }
-        }
+    //刷新ai期盤
+    void setupText(){
+    	if(!gamesetup){
+	    	for(int i=0; i<aiArray.length; i++){
+	        	for(int j=0; j<aiArray[i].length; j++){
+	        		aiArray[i][j] = i*5+j+1;
+	        		aiArrayAllow[i][j] = false;
+	        		//個位數+0
+	        		if(aiArray[i][j] / 10 == 0)
+	        			aiStr += 0;
+	        		aiStr += aiArray[i][j]+" ";
+	        		if(aiArray[i][j] % 5 == 0)
+	        			aiStr += "\n";
+	        	}
+	        }
+    		gamesetup = true;
+    	}
+    	aiStr = "";
+    	if(gamesetup){
+    		Log.d("96", "96");
+	    	for(int i=0; i<aiArray.length; i++){
+	        	for(int j=0; j<aiArray[i].length; j++){
+	        		aiStr += " ";
+	        		if(aiArray[i][j] / 10 == 0)
+	        			aiStr += 0;
+	        		aiStr += aiArray[i][j];
+	        		if(aiArrayAllow[i][j])
+	        			aiStr += "*";
+	        		else
+	        			aiStr += " ";
+	        		if(aiArray[i][j] % 5 == 0)
+	        			aiStr += "\n";
+	        		Log.d("109", "109");
+	        	}
+	        }
+    	}
+    	Log.d("aiStr", aiStr);
+    	tv.setText(aiStr);
     }
+    
 }
