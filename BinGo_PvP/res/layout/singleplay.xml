@@ -1,192 +1,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    tools:context="com.example.soloqchess.MainActivity" >
 
-    <LinearLayout
-        android:id="@+id/SingleLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/Startbt"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:weightSum="1" >
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-
-                android:id="@+id/button1" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button2" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button3" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button4" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button5" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button6" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button7" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button8" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button9" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button10" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button11" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button12" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button13" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button14" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button15" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button16" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button17" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button18" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button19" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button20" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button21" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button22" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button23" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button24" />
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:id="@+id/button25" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ai&apos;s chess"
+        android:textSize = "44sp" />
 
     <Button
-        android:id="@+id/Startbt"
-        android:layout_width="match_parent"
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="58dp"
-        android:text="Start" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="39dp"
+        android:text="Bt1" />
 
 </RelativeLayout>
