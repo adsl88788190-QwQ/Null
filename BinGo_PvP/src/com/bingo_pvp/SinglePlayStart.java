@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
 	String aiStr = "";
 	//毫無反應就只是個button
 	Button bt;
-	//ai隨機到的曙字
+	//ai隨機到的數字
 	int aiGet = 0;
 	
 	boolean gamesetup = false;
