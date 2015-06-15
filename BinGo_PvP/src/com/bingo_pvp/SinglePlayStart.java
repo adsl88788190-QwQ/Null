@@ -64,7 +64,6 @@ public class MainActivity extends Activity {
 //		if(aiClick)
 //			aiUpDate();
 		tv.setText(aiStr);
-		Log.d("aiStr", aiStr);
     }
 
     @Override
@@ -103,12 +102,12 @@ public class MainActivity extends Activity {
         			aiStr += "\n";
         	}
         }
+    	//tv.setText(aiStr);
 		aiSetUp = true;
     }
     
     //刷新ai棋盤
     void aiUpDate(){
-    	Log.d("113", "113");
     	//重置ai的棋盤
     	aiStr = "";
     	for(int i=0; i<aiArray.length; i++){
@@ -119,11 +118,8 @@ public class MainActivity extends Activity {
         			aiStr += 0;
         		aiStr += aiArray[i][j];
         		//如果該數字被點名，就標記*
-        		Log.d("r119-allow",i+" "+j+" "+String.valueOf((aiArrayAllow[i][j])?1:0));
-        		if(aiArrayAllow[i][j]){
-        			Log.d("star","1");
+        		if(aiArrayAllow[i][j])
         			aiStr += "*";
-        		}
         		else
         			aiStr += " ";
         		//每5個換行
@@ -132,6 +128,5 @@ public class MainActivity extends Activity {
         	}
         }
     	tv.setText(aiStr);
-		Log.d("aiStr", aiStr);
     }
 }
