@@ -38,8 +38,8 @@ public class MainActivity extends Activity {
         tv = (TextView)findViewById(R.id.textView1);
         bt = (Button)findViewById(R.id.button1);
         //定義新的棋盤
-      		if(!gamesetup)
-      			gameSet();
+      	if(!gamesetup)
+      		gameSet();
 		bt.setOnClickListener(new OnClickListener() {
 			
 			//按下button就讓ai挑一個變數
@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		//刷新棋盤
-		setupText();
+		aiUpDate();
     }
 
     @Override
@@ -103,8 +103,8 @@ public class MainActivity extends Activity {
 		gamesetup = true;
     }
     
-    //刷新ai期盤
-    void setupText(){
+    //刷新ai棋盤
+    void aiUpDate(){
     	aiStr = "";
 		//Log.d("96", "96");
     	for(int i=0; i<aiArray.length; i++){
