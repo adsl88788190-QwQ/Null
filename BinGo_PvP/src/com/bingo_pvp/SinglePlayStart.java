@@ -116,8 +116,10 @@ public class MainActivity extends Activity {
         		aiStr += aiArray[i][j];
         		//如果該數字被點名，就標記*
         		Log.d("r119-allow",String.valueOf((aiArrayAllow[i][j])?1:0));
-        		if(aiArrayAllow[i][j])
+        		if(aiArrayAllow[i][j]){
+        			Log.d("star","1");
         			aiStr += "*";
+        		}
         		else
         			aiStr += " ";
         		//每5個換行
