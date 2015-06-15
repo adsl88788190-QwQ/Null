@@ -30,6 +30,8 @@ public class MainActivity extends Activity {
 	int aiGet = 0;
 	//是否定義一個新的ai棋盤
 	boolean gamesetup = false;
+	//
+	boolean aiClick = false;
 		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +51,22 @@ public class MainActivity extends Activity {
 				Random ran = new Random();
 				//點擊button就隨機點名一個數字
 				aiGet = ran.nextInt(25)+1;
+				//重複點名則重點
+				while(aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])
+					aiGet = ran.nextInt(25)+1;
 				Log.d("aiGet", Integer.toString(aiGet));
 				//數字(aiGet)存回ai之boolean陣列
 				//(aiGet-1)/5=row
 				//(aiGet-1)%5=column
 				aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
-				//檢測boolean是否有變動
-				//Log.d("allow",String.valueOf((aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])?1:0));
-				//Log.d("allow", Integer.toString((aiGet-1)/5)+" "+Integer.toString((aiGet-1)%5));				
+				aiClick = true;
 			}
 		});
 		//刷新棋盤
-		aiUpDate();
+		if(aiClick)
+			aiUpDate();
+		tv.setText(aiStr);
+		Log.d("aiStr", aiStr);
     }
 
     @Override
@@ -85,7 +91,6 @@ public class MainActivity extends Activity {
     //定義aiStr內的棋盤
     void gameSet(){
     	aiStr = "";
-    	//Log.d("83", "83");
     	for(int i=0; i<aiArray.length; i++){
         	for(int j=0; j<aiArray[i].length; j++){
         		aiArray[i][j] = i*5+j+1;
@@ -97,7 +102,6 @@ public class MainActivity extends Activity {
         		//每5個換行
         		if(aiArray[i][j] % 5 == 0)
         			aiStr += "\n";
-        		//Log.d("95", "95");
         	}
         }
 		gamesetup = true;
@@ -106,7 +110,6 @@ public class MainActivity extends Activity {
     //刷新ai棋盤
     void aiUpDate(){
     	aiStr = "";
-		//Log.d("96", "96");
     	for(int i=0; i<aiArray.length; i++){
         	for(int j=0; j<aiArray[i].length; j++){
         		aiStr += " ";
@@ -116,6 +119,7 @@ public class MainActivity extends Activity {
         		aiStr += aiArray[i][j];
         		//如果該數字被點名，就標記*
         		Log.d("r119-allow",String.valueOf((aiArrayAllow[i][j])?1:0));
+        		Log.d("r120-allow",String.valueOf((aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])?1:0));
         		if(aiArrayAllow[i][j]){
         			Log.d("star","1");
         			aiStr += "*";
@@ -125,11 +129,9 @@ public class MainActivity extends Activity {
         		//每5個換行
         		if(aiArray[i][j] % 5 == 0)
         			aiStr += "\n";
-        		//Log.d("119", "119");
         	}
         }
-    	Log.d("aiStr", aiStr);
-    	tv.setText(aiStr);
+    	aiClick = false;
     }
     
 }
