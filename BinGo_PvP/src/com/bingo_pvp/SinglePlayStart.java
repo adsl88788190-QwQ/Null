@@ -1,4 +1,4 @@
-package com.example.soloqchess;
+package com.bingo_pvp;
 
 import java.util.Random;
 
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class MainActivity extends Activity {
+public class SinglePlayStart extends Activity {
 
 	//顯示ai的棋盤
 	TextView tv;
@@ -30,11 +30,12 @@ public class MainActivity extends Activity {
 	int aiGet = 0;
 	//是否定義一個新的ai棋盤
 	boolean aiSetUp = false;
-		
+	//判斷勝負
+	Check playcheck,aicheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.singleplay);
         tv = (TextView)findViewById(R.id.textView1);
         bt = (Button)findViewById(R.id.button1);
         //定義新的棋盤
@@ -57,6 +58,7 @@ public class MainActivity extends Activity {
 				//(aiGet-1)/5=row
 				//(aiGet-1)%5=column
 				aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
+			
 				aiUpDate();
 			}
 		});
@@ -64,12 +66,17 @@ public class MainActivity extends Activity {
 //		if(aiClick)
 //			aiUpDate();
 		tv.setText(aiStr);
+		
+		//=======================
+		//這邊要放入USER的陣列
+		//playcheck = new Check(array);
+		aicheck = new Check(aiArrayAllow);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.play, menu);
         return true;
     }
 
@@ -126,7 +133,17 @@ public class MainActivity extends Activity {
         		if(aiArray[i][j] % 5 == 0)
         			aiStr += "\n";
         	}
-        }
-    	tv.setText(aiStr);
+        }    	
+    	if(playcheck.win() & aicheck.win()){
+    		
+    	}else if(playcheck.win()){
+    		
+    	}else if(aicheck.win()){
+    		
+    	}else{
+    		tv.setText(playcheck.line());
+    		
+    	}
+    
     }
 }

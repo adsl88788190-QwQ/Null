@@ -36,10 +36,8 @@ public final class R {
         public static final int RandRoom=0x7f080007;
         public static final int Randombt=0x7f080000;
         public static final int Sharebt=0x7f08000b;
-        public static final int SingleLayout=0x7f08002d;
         public static final int Singlebt=0x7f080009;
-        public static final int Startbt=0x7f08002e;
-        public static final int action_settings=0x7f080030;
+        public static final int action_settings=0x7f08002e;
         public static final int button=0x7f080029;
         public static final int button1=0x7f08000d;
         public static final int button10=0x7f080016;
@@ -75,7 +73,7 @@ public final class R {
         public static final int randbt=0x7f08002c;
         public static final int returnbt=0x7f080028;
         public static final int textView=0x7f08002b;
-        public static final int textView1=0x7f08002f;
+        public static final int textView1=0x7f08002d;
     }
     public static final class layout {
         public static final int activity_play=0x7f030000;
@@ -86,6 +84,7 @@ public final class R {
         public static final int playloading=0x7f030005;
         public static final int randgame=0x7f030006;
         public static final int singleplay=0x7f030007;
+        public static final int singlevscomputer=0x7f030008;
     }
     public static final class menu {
         public static final int play=0x7f070000;

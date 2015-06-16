@@ -2,7 +2,7 @@ package com.bingo_pvp;
 
 //API EX
 //	boolean[][] array = new boolean[SIZE][SIZE]; : 棋盤 
-//	Check check = new Check(array); 參數放入要檢查的棋盤
+//	Check check = new Check(array); 參數放入要檢查的棋盤 為boolean陣列
 //	check.win() 回傳true 則連線達五條 獲勝;回傳false 則否
 //	check.line() 回傳目前棋盤連線數
 //
