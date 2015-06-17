@@ -13,8 +13,11 @@ package com.bingo_pvp;
 
 public class Check {
 	int SIZE = 5;
-	boolean[][] array;
+	private boolean[][] array;
 	//建構子 
+	public Check(){
+		array = new boolean[5][5];
+	}
 	public Check(boolean[][] array){
 		if(array.length != 5)//若棋盤大小不為5 則更改SIZE與棋盤大小符合
 			SIZE = array.length;
