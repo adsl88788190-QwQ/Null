@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,18 +57,16 @@ public class Play extends Activity {
 				bitmap = bitmap.createScaledBitmap(bitmap, 100, 100,true);
 				bitmap = scorejpg.createDieImage(bitmap, 100, 100, (int)(Math.random()*1000)+"");
 				
-				ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-				bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-				//String path = Images.Media.insertImage(Play, bitmap, "Title", null);
 				
-//				Intent intent=new Intent(Intent.ACTION_SEND);
-//				intent.setType("image/jpg");
-//				Uri u = Uri.fromFile(file)
-//				intent.putExtra(Intent.EXTRA_STREAM, u);
-//				intent.putExtra(Intent.EXTRA_SUBJECT, "「分享」 Bingo_PvP");
-//				intent.putExtra(Intent.EXTRA_TEXT, "真的超好玩的啦!!不信問泰佑。");
-//				startActivity(Intent.createChooser(intent, getTitle()));
-//				imageView.setImageBitmap(bitmap);
+				
+				Intent intent=new Intent(Intent.ACTION_SEND);
+				intent.setType("image/jpg");
+				Uri uri = Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, null,null));
+				intent.putExtra(Intent.EXTRA_STREAM, uri);
+				intent.putExtra(Intent.EXTRA_SUBJECT, "「分享」 Bingo_PvP");
+				intent.putExtra(Intent.EXTRA_TEXT, "真的超好玩的啦!!。");
+				startActivity(Intent.createChooser(intent, getTitle()));
+				imageView.setImageBitmap(bitmap);
 			}
 		});
         //測試用ImageView
