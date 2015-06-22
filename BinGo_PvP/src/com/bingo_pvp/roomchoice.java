@@ -10,41 +10,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 
-public class ChooseRoom extends Activity {
+public class roomchoice extends Activity {
 	Button CreateRoom,IntoRoom,RandRoom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_selectroom);
-        //創建房間
-        CreateRoom = (Button)findViewById(R.id.CreateRoom);
-        CreateRoom.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(ChooseRoom.this,SetActivity.class);
-				startActivity(intent);
-			}
-		});
-        //進入房間
-        IntoRoom = (Button)findViewById(R.id.IntoRoom);
-        IntoRoom.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(ChooseRoom.this,roomchoice.class);
-				startActivity(intent);
-			}
-		});
-        //隨機對戰
-        RandRoom = (Button)findViewById(R.id.RandRoom);
-        RandRoom.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+        setContentView(R.layout.roomchoice);
+       
     }
 
 
