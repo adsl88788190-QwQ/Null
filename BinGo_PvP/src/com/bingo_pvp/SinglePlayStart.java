@@ -32,6 +32,12 @@ public class SinglePlayStart extends Activity {
 	int aiGet = 0;
 	//是否定義一個新的ai棋盤
 	boolean aiSetUp = false;
+	
+	// ai 模式
+	int aiMode = 1;
+	// 隨機下ㄧ步
+	int rdmStep;
+	
 	//判斷勝負
 	Check playcheck,aicheck;
     @Override
@@ -49,18 +55,38 @@ public class SinglePlayStart extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
 				Random ran = new Random();
-				//點擊button就隨機點名一個數字(1~25)
-				aiGet = ran.nextInt(25)+1;
-				//重複點名則重新點名
-				while(aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])
+				
+				if(aiMode == 1){
+					//點擊button就隨機點名一個數字(1~25)
 					aiGet = ran.nextInt(25)+1;
-				Log.d("aiGet", Integer.toString(aiGet));
-				//數字(aiGet)存回ai之boolean陣列
-				//(aiGet-1)/5=row
-				//(aiGet-1)%5=column
-				aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
-			
+					//重複點名則重新點名
+					while(aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])
+						aiGet = ran.nextInt(25)+1;
+					Log.d("aiGet", Integer.toString(aiGet));
+					//數字(aiGet)存回ai之boolean陣列
+					//(aiGet-1)/5=row
+					//(aiGet-1)%5=column
+					aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
+				}else if(aiMode == 2){
+					rdmStep = ran.nextInt(2)+1;
+					if(rdmStep == 1){
+						//點擊button就隨機點名一個數字(1~25)
+						aiGet = ran.nextInt(25)+1;
+						//重複點名則重新點名
+						while(aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])
+							aiGet = ran.nextInt(25)+1;
+						Log.d("aiGet", Integer.toString(aiGet));
+						//數字(aiGet)存回ai之boolean陣列
+						//(aiGet-1)/5=row
+						//(aiGet-1)%5=column
+						aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
+					}else if(rdmStep == 2){
+						
+					}
+					
+				}
 				aiUpDate();
 			}
 		});
