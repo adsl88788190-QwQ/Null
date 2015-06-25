@@ -26,7 +26,7 @@ public class SinglePlayInit extends Activity {
         	Cheese.al = al;
         }else
         	al = Cheese.al;
-        BT_Click();
+        //BT_Click();
     }
     
     public void BT_Click(){

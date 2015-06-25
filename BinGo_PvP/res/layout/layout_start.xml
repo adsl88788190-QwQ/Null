@@ -5,8 +5,8 @@
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
+        android:layout_width="169dp"
+        android:layout_height="169dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/ic_launcher"

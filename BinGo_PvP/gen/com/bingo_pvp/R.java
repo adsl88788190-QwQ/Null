@@ -40,6 +40,7 @@ public final class R {
         public static final int Sharebt=0x7f080048;
         public static final int Singlebt=0x7f080046;
         public static final int action_settings=0x7f08006c;
+        public static final int big=0x7f080070;
         public static final int button=0x7f080065;
         public static final int button1=0x7f080020;
         public static final int button10=0x7f080052;
@@ -69,6 +70,8 @@ public final class R {
         public static final int button9=0x7f080051;
         public static final int clearbt=0x7f080063;
         public static final int finishbt=0x7f080062;
+        public static final int gay=0x7f08006e;
+        public static final int gjh=0x7f08006f;
         public static final int imageView=0x7f080045;
         public static final int imageView1=0x7f080003;
         public static final int imageView10=0x7f08000d;
@@ -134,6 +137,7 @@ public final class R {
         public static final int tableRow7=0x7f080027;
         public static final int tableRow8=0x7f08002d;
         public static final int tableRow9=0x7f080033;
+        public static final int taiyou=0x7f08006d;
         public static final int textView=0x7f080067;
         public static final int textView1=0x7f08006a;
         public static final int textView2=0x7f08006b;

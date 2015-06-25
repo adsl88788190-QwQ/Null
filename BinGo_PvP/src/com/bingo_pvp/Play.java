@@ -66,6 +66,7 @@ public class Play extends Activity {
 				intent.putExtra(Intent.EXTRA_SUBJECT, "「分享」 Bingo_PvP");
 				intent.putExtra(Intent.EXTRA_TEXT, "真的超好玩的啦!!。");
 				startActivity(Intent.createChooser(intent, getTitle()));
+				imageView.setImageDrawable(null);
 				imageView.setImageBitmap(bitmap);
 			}
 		});
@@ -87,7 +88,11 @@ public class Play extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if(id == R.id.taiyou){
+        	Toast.makeText(this, "泰佑表示: 不要問，你會怕。", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (true) {
         	Toast.makeText(this, "去問泰佑啦!!", Toast.LENGTH_SHORT).show();
             return true;
         }

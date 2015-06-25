@@ -1,11 +1,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.bingo_pvp.Play" >
-
-    <item
+	<item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+        android:title="Setting"/>
+    <item
+        android:id="@+id/taiyou"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="泰佑"/>
+    <item
+        android:id="@+id/gay"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="昶崴"/>
+    <item
+        android:id="@+id/gjh"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="家豪"/>
+	<item
+        android:id="@+id/big"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="育誠超大"/>
 </menu>
