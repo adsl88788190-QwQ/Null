@@ -32,7 +32,7 @@ public class Play extends Activity {
 			@Override
 			public void onClick(View v) {
 				//單人的intent 昶崴負責
-				Intent intent = new Intent(Play.this,SinglePlayStart.class);
+				Intent intent = new Intent(Play.this,SinglePlayInit.class);
 				startActivity(intent);			
 			}
 		});

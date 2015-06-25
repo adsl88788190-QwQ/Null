@@ -1,9 +1,6 @@
 package com.bingo_pvp;
 
 import java.util.Random;
-
-import com.example.bingo_pvp.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -104,7 +101,7 @@ public class SinglePlayStart extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.play, menu);
         return true;
     }
 
