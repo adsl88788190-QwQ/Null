@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -25,6 +26,8 @@ public class SinglePlayStart extends Activity {
 	String aiStr = "";
 	//毫無反應就只是個button
 	Button bt;
+	ImageView[] iv1,iv2;
+	
 	//ai隨機點名的數字
 	int aiGet = 0;
 	//是否定義一個新的ai棋盤
@@ -46,6 +49,17 @@ public class SinglePlayStart extends Activity {
         //定義新的棋盤
       	if(!aiSetUp)
       		aiSet();
+      	
+      	for(int i = 0;i<iv1.length;i++){
+			int resID = getResources().getIdentifier("imageview"+(i+1), "id", getPackageName());
+			iv1[i] = (ImageView)findViewById(resID);			
+			//bt1[i].setOnClickListener(btClick);
+		}
+      	
+      	
+		iv1[0].setOnClickListener(ivClick);
+      	
+      	/*
 		bt.setOnClickListener(new OnClickListener() {
 			
 			//按下button後，ai隨機點名一個不重複變數
@@ -87,6 +101,8 @@ public class SinglePlayStart extends Activity {
 				aiUpDate();
 			}
 		});
+		*/
+		
 		//刷新棋盤
 //		if(aiClick)
 //			aiUpDate();
@@ -97,6 +113,30 @@ public class SinglePlayStart extends Activity {
 		//playcheck = new Check(array);
 		aicheck = new Check(aiArrayAllow);
     }
+    
+    //imageview click event
+    OnClickListener ivClick = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+			Random ran = new Random();
+			
+			if(aiMode == 1){
+				//點擊button就隨機點名一個數字(1~25)
+				aiGet = ran.nextInt(25)+1;
+				//重複點名則重新點名
+				while(aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5])
+					aiGet = ran.nextInt(25)+1;
+				Log.d("aiGet", Integer.toString(aiGet));
+				//數字(aiGet)存回ai之boolean陣列
+				//(aiGet-1)/5=row
+				//(aiGet-1)%5=column
+				aiArrayAllow[(aiGet-1)/5][(aiGet-1)%5] = true;
+			}
+		}
+	};
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
