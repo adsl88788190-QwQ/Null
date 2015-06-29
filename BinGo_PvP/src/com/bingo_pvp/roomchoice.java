@@ -11,11 +11,20 @@ import android.widget.Button;
 
 
 public class roomchoice extends Activity {
-	Button CreateRoom,IntoRoom,RandRoom;
+	Button re;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roomchoice);
+        re=(Button)findViewById(R.id.button1);
+        re.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(roomchoice.this,ChooseRoom.class);
+				startActivity(intent);
+			}
+		});
        
     }
 
