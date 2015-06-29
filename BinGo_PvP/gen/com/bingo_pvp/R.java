@@ -25,7 +25,32 @@ public final class R {
         public static final int bingoselect=0x7f020000;
         public static final int black=0x7f020001;
         public static final int ic_launcher=0x7f020002;
-        public static final int room=0x7f020003;
+        public static final int p1=0x7f020003;
+        public static final int p10=0x7f020004;
+        public static final int p11=0x7f020005;
+        public static final int p12=0x7f020006;
+        public static final int p13=0x7f020007;
+        public static final int p14=0x7f020008;
+        public static final int p15=0x7f020009;
+        public static final int p16=0x7f02000a;
+        public static final int p17=0x7f02000b;
+        public static final int p18=0x7f02000c;
+        public static final int p19=0x7f02000d;
+        public static final int p2=0x7f02000e;
+        public static final int p20=0x7f02000f;
+        public static final int p21=0x7f020010;
+        public static final int p22=0x7f020011;
+        public static final int p23=0x7f020012;
+        public static final int p24=0x7f020013;
+        public static final int p25=0x7f020014;
+        public static final int p3=0x7f020015;
+        public static final int p4=0x7f020016;
+        public static final int p5=0x7f020017;
+        public static final int p6=0x7f020018;
+        public static final int p7=0x7f020019;
+        public static final int p8=0x7f02001a;
+        public static final int p9=0x7f02001b;
+        public static final int room=0x7f02001c;
     }
     public static final class id {
         public static final int CreateRoom=0x7f080042;
