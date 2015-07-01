@@ -43,7 +43,7 @@ public class SinglePlayStart extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.singleplay);
+        setContentView(R.layout.singleplay);
         //tv = (TextView)findViewById(R.id.textView1);
         //bt = (Button)findViewById(R.id.button1);
         //定義新的棋盤
