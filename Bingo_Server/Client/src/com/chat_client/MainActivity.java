@@ -58,8 +58,7 @@ public class MainActivity extends Activity {
 								clientSocket.getOutputStream()));
 
 						// 寫入訊息
-						bw.write(EditText01.getText() + ":"
-								+ EditText02.getText() + "\n");
+						bw.write( "123\n");
 
 						// 立即發送
 						bw.flush();

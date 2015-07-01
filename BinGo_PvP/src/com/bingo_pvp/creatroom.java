@@ -17,15 +17,17 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class creatroom extends Activity implements OnClickListener {
+public class creatroom extends Activity implements OnClickListener, OnTouchListener {
 	public static Handler mHandler = new Handler();
 	String tmp; // 暫存文字訊息
 	Socket clientSocket; // 客戶端socket
@@ -34,6 +36,7 @@ public class creatroom extends Activity implements OnClickListener {
 	ImageView[][] im;
 	int num=0;
 	Button start;
+	int choice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,7 @@ public class creatroom extends Activity implements OnClickListener {
         	id = getResources().getIdentifier("p"+self[x][y], "drawable", getPackageName());
         	im[x][y].setImageResource(id);
         	im[x][y].setOnClickListener(this);
+        	im[x][y].setOnTouchListener(this);
         	//長按棋盤 進入 設定 棋盤
         	/*im[x][y].setOnLongClickListener(new OnLongClickListener() {
     			@Override
@@ -87,7 +91,7 @@ public class creatroom extends Activity implements OnClickListener {
     				return false;
     			}
     		});*/
-        }
+            }
     	
     }
 
@@ -114,54 +118,31 @@ public class creatroom extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch(v.getId()){
-			case R.id.imageView26:
-				// 如果已連接則
-				if (clientSocket.isConnected()) {
-					Log.d("test","WTF");
-					BufferedWriter bw;
-					try {
-						// 取得網路輸出串流.
-						bw = new BufferedWriter(new OutputStreamWriter(
-								clientSocket.getOutputStream()));
-
-						// 寫入訊息
-						bw.write("123");
-						Log.d("test","WTrrrr");
-						// 立即發送
-						bw.flush();
-					} catch (IOException e) {
-
-					}
-				}
-				break;
 			case R.id.button1:
-				// 如果已連接則
-				if (clientSocket.isConnected()) {
-					BufferedWriter bw;
-					try {
-						// 取得網路輸出串流
-						bw = new BufferedWriter(new OutputStreamWriter(
-								clientSocket.getOutputStream()));
-
-						// 寫入訊息
-						bw.write("123");
-
-						// 立即發送
-						bw.flush();
-					} catch (IOException e) {
-
-					}
-				}
+				
 				break;
 		
 		}
 		
 	}
-	// 顯示更新訊息
+	// 顯示更新
 	private Runnable updateText = new Runnable() {
 		public void run() {
-			// 加入新訊息並換行
-			start.setText(tmp);
+			int i=0;
+			
+			 for(int x=0;x<5;x++)
+		            for(int y=0;y<5;y++){
+		            	Log.d("123",tmp+"..."+String.valueOf(self[x][y]));
+			        	String str = "imageView"+(i+26);
+			        	i++;
+			        	int id = getResources().getIdentifier(str, "id", getPackageName());
+			        	if(tmp.equals(String.valueOf(self[x][y]))){
+		            		 id = getResources().getIdentifier("g"+self[x][y], "drawable", getPackageName());
+				        	im[x][y].setImageResource(id);
+		            	}	
+
+		            }
+			start.setText(tmp+"asd");
 			System.out.print(tmp);
 		}
 	};
@@ -196,6 +177,40 @@ public class creatroom extends Activity implements OnClickListener {
  			}
  		}
  	};
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		// TODO Auto-generated method stub
+		
+		switch(event.getAction()){
+		case MotionEvent.ACTION_DOWN:
+	        for(int x=0;x<5;x++)
+	            for(int y=0;y<5;y++){  
+	            	if(v.getId()==im[x][y].getId()){
+	            		if (clientSocket.isConnected()) {
+	    					Log.d("test","WTF");
+	    					BufferedWriter bw;
+	    					try {
+	    						// 取得網路輸出串流.
+	    						bw = new BufferedWriter(new OutputStreamWriter(
+	    								clientSocket.getOutputStream()));
+
+	    						// 寫入訊息
+	    						bw.write(String.valueOf(self[x][y])+"\n");
+	    						Log.d("test","WTrrrr");
+	    						// 立即發送
+	    						bw.flush();
+	    					} catch (IOException e) {
+
+	    					}
+	    				}
+	            	}
+	            }
+			break;
+	}
+
+		
+		return false;
+	}
 
     
 }
