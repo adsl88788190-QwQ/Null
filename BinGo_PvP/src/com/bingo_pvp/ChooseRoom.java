@@ -42,7 +42,8 @@ public class ChooseRoom extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent intent = new Intent(ChooseRoom.this,creatroom.class);
+				startActivity(intent);
 			}
 		});
     }

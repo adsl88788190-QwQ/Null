@@ -7,67 +7,92 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Random;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class creatroom extends Activity {
+public class creatroom extends Activity implements OnClickListener, OnTouchListener {
 	public static Handler mHandler = new Handler();
 	String tmp; // 暫存文字訊息
 	Socket clientSocket; // 客戶端socket
-	ImageView im;
+	int [][] self=new int[5][5];
+	int temp;
+	ImageView[][] im;
+	int num=0;
+	Button start;
+	int choice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creatroom);
-    	// 以新的執行緒來讀取資料
-    			Thread t = new Thread(readData);
+        /////
+        // 以新的執行緒來讀取資料
+		Thread t = new Thread(readData);
 
-    			// 啟動執行緒
-    			t.start();
+		// 啟動執行緒
+		t.start();
+        
+        
+        /////
+		start=(Button)findViewById(R.id.button1);
+        for(int x=0;x<5;x++)
+            for(int y=0;y<5;y++){
+        	self[x][y]=num+1;
+        	num++;
+            }
+        for(int c=0;c<100;c++){
+        	int x1=(int)(Math.random()*5),
+        		y1=(int)(Math.random()*5),
+        		x2=(int)(Math.random()*5),
+        		y2=(int)(Math.random()*5);
+        	temp=self[x1][y1];
+        	self[x1][y1]=self[x2][y2];
+        	self[x2][y2]=temp;
+        }
+        BT_Click();
 
-    			// 從資源檔裡取得位址後強制轉型成按鈕
-    			//Button button1 = (Button) findViewById(R.id.Button01);
-
-    			// 設定按鈕的事件
-    		    im.setOnClickListener(new Button.OnClickListener() {
-    				// 當按下按鈕的時候觸發以下的方法
-    				public void onClick(View v) {
-    					// 如果已連接則
-    					if (clientSocket.isConnected()) {
-
-    						BufferedWriter bw;
-
-    						try {
-    							// 取得網路輸出串流
-    							bw = new BufferedWriter(new OutputStreamWriter(
-    									clientSocket.getOutputStream()));
-
-    							// 寫入訊息
-    							//bw.write(EditText01.getText() + ":"
-    									//+ EditText02.getText() + "\n");
-
-    							// 立即發送
-    							bw.flush();
-    						} catch (IOException e) {
-
-    						}
-    						// 將文字方塊清空
-    					//	EditText02.setText("");
-    					}
-    				}
-    			});
-
+    }
+    public void BT_Click(){
+    	int i=0;
+    	im = new ImageView[5][5];
+        for(int x=0;x<5;x++)
+            for(int y=0;y<5;y++){   	
+        	String str = "imageView"+(i+26);
+        	i++;
+        	int id = getResources().getIdentifier(str, "id", getPackageName());
+        	im[x][y] = (ImageView)findViewById(id);
+        	id = getResources().getIdentifier("p"+self[x][y], "drawable", getPackageName());
+        	im[x][y].setImageResource(id);
+        	im[x][y].setOnClickListener(this);
+        	im[x][y].setOnTouchListener(this);
+        	//長按棋盤 進入 設定 棋盤
+        	/*im[x][y].setOnLongClickListener(new OnLongClickListener() {
+    			@Override
+    			public boolean onLongClick(View v) {
+    				// 長按棋盤 進入 設定 棋盤
+    				Intent intent = new Intent(creatroom.this, SetActivity.class);
+    				startActivity(intent);
+    				return false;
+    			}
+    		});*/
+            }
+    	
     }
 
     @Override
@@ -89,16 +114,39 @@ public class creatroom extends Activity {
         return super.onOptionsItemSelected(item);
     }
     
- // 顯示更新訊息
- 	private Runnable updateText = new Runnable() {
- 		public void run() {
- 			// 加入新訊息並換行
- 			//TextView01.append(tmp + "\n");
- 		}
- 	};
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch(v.getId()){
+			case R.id.button1:
+				
+				break;
+		
+		}
+		
+	}
+	// 顯示更新
+	private Runnable updateText = new Runnable() {
+		public void run() {
+			int i=0;
+			
+			 for(int x=0;x<5;x++)
+		            for(int y=0;y<5;y++){
+		            	Log.d("123",tmp+"..."+String.valueOf(self[x][y]));
+			        	String str = "imageView"+(i+26);
+			        	i++;
+			        	int id = getResources().getIdentifier(str, "id", getPackageName());
+			        	if(tmp.equals(String.valueOf(self[x][y]))){
+		            		 id = getResources().getIdentifier("g"+self[x][y], "drawable", getPackageName());
+				        	im[x][y].setImageResource(id);
+		            	}	
 
- 	// 取得網路資料
- 	private Runnable readData = new Runnable() {
+		            }
+			start.setText(tmp+"asd");
+			System.out.print(tmp);
+		}
+	};
+	private Runnable readData = new Runnable() {
  		public void run() {
  			// server端的IP
  			InetAddress serverIp;
@@ -129,6 +177,40 @@ public class creatroom extends Activity {
  			}
  		}
  	};
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		// TODO Auto-generated method stub
+		
+		switch(event.getAction()){
+		case MotionEvent.ACTION_DOWN:
+	        for(int x=0;x<5;x++)
+	            for(int y=0;y<5;y++){  
+	            	if(v.getId()==im[x][y].getId()){
+	            		if (clientSocket.isConnected()) {
+	    					Log.d("test","WTF");
+	    					BufferedWriter bw;
+	    					try {
+	    						// 取得網路輸出串流.
+	    						bw = new BufferedWriter(new OutputStreamWriter(
+	    								clientSocket.getOutputStream()));
+
+	    						// 寫入訊息
+	    						bw.write(String.valueOf(self[x][y])+"\n");
+	    						Log.d("test","WTrrrr");
+	    						// 立即發送
+	    						bw.flush();
+	    					} catch (IOException e) {
+
+	    					}
+	    				}
+	            	}
+	            }
+			break;
+	}
+
+		
+		return false;
+	}
 
     
 }
