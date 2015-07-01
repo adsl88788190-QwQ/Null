@@ -81,11 +81,20 @@ public class SinglePlayStart extends Activity {
 			int id = getResources().getIdentifier("imageView" + (i + 26), "id",
 					getPackageName());
 			Play[i / 5][i % 5] = (ImageView) findViewById(id);
+			Play[i / 5][i % 5].setOnClickListener(click);
 			// setImageResource
 			id = getResources().getIdentifier("p" + temp.get(i), "drawable",
 					getPackageName());
 			Play[i / 5][i % 5].setImageResource(id);
 		}
 	}
-	
+	//偵測玩家按下棋盤
+	OnClickListener click = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
 }
