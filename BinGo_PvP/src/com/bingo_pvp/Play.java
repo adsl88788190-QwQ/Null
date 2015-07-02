@@ -55,7 +55,7 @@ public class Play extends Activity {
 				//發表成績的intent 泰佑負責
 				Scorejpg scorejpg = new Scorejpg();
 				Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.black);
-				bitmap = bitmap.createScaledBitmap(bitmap, 100, 100,true);
+				bitmap = bitmap.createScaledBitmap(bitmap, 100, 100,true);			
 				String str = Cheese.win +"勝 "+Cheese.lose+" 敗";
 				bitmap = scorejpg.createDieImage(bitmap, 100, 100, str);			
 				Intent intent=new Intent(Intent.ACTION_SEND);

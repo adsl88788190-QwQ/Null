@@ -186,7 +186,7 @@ public class SinglePlayStart extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
-				//SinglePlayStart.this.finish();			
+				SinglePlayStart.this.finish();			
 			}
 		}).show();
 		//移除按鈕偵聽
@@ -195,11 +195,13 @@ public class SinglePlayStart extends Activity {
 				ai[i][j].setClickable(false);
 				Play[i][j].setClickable(false);
 			}
-		}
-		
+		}		
+		Log.d("Line199","win:"+win+"lose"+lose);
 		SharedPreferences load = getSharedPreferences("Cheese",0);		
-		load.edit().putInt("win", win);
-		load.edit().putInt("lose", lose);
+		load.edit().putInt("win", win).commit();
+		load.edit().putInt("lose", lose).commit();
+		Cheese.win = win;
+		Cheese.lose = lose;
 		return true;
 	}
 }
