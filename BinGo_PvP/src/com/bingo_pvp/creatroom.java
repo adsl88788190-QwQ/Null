@@ -46,7 +46,7 @@ public class creatroom extends Activity implements OnClickListener, OnTouchListe
 		Thread t = new Thread(readData);
 
 		// 啟動執行緒
-		t.start();
+		//t.start();
         
         
         /////
@@ -68,9 +68,22 @@ public class creatroom extends Activity implements OnClickListener, OnTouchListe
         BT_Click();
 
     }
+    //
+    //對手的棋盤
+    ImageView[][] play2;
     public void BT_Click(){
     	int i=0;
     	im = new ImageView[5][5];
+    	//對手棋盤宣告
+    	play2 = new ImageView[5][5];
+    	for(int x=0;x<5;x++)
+            for(int y=0;y<5;y++){   	
+        	String str = "imageView"+(x*5+y+1);
+        	Log.d("line82",str);
+        	int id = getResources().getIdentifier(str, "id", getPackageName());
+        	play2[x][y] = (ImageView)findViewById(id);        	
+        	play2[x][y].setImageResource(R.drawable.unknow); 	
+       }
         for(int x=0;x<5;x++)
             for(int y=0;y<5;y++){   	
         	String str = "imageView"+(i+26);
@@ -80,18 +93,8 @@ public class creatroom extends Activity implements OnClickListener, OnTouchListe
         	id = getResources().getIdentifier("p"+self[x][y], "drawable", getPackageName());
         	im[x][y].setImageResource(id);
         	im[x][y].setOnClickListener(this);
-        	im[x][y].setOnTouchListener(this);
-        	//長按棋盤 進入 設定 棋盤
-        	/*im[x][y].setOnLongClickListener(new OnLongClickListener() {
-    			@Override
-    			public boolean onLongClick(View v) {
-    				// 長按棋盤 進入 設定 棋盤
-    				Intent intent = new Intent(creatroom.this, SetActivity.class);
-    				startActivity(intent);
-    				return false;
-    			}
-    		});*/
-            }
+        	im[x][y].setOnTouchListener(this);        	
+       }
     	
     }
 

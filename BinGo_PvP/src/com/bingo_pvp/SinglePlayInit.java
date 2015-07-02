@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +21,24 @@ public class SinglePlayInit extends Activity {
 	ArrayList<String> al= null;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.creatroom);     
+        setContentView(R.layout.creatroom);
+    	al = new ArrayList<String>();
+        //是否為第一次
+        SharedPreferences load = getSharedPreferences("Cheese", 0);
+        boolean test = load.getBoolean("check", false);
+        Log.d("line28",test+"");
+        if(test){
+        	String str = load.getString("al", "");
+        	Log.d("line32",str);
+        	if(!str.equals("")){
+        		String[] temp = str.split(",");
+        		for(int i = 0;i<25;i++)
+        			al.add(temp[i]);
+        	}
+        }
+        	
+        //
         if(!Cheese.boolean1){
-        	al = new ArrayList<String>();
         	for(int i=0;i<25;i++)
         		al.add(((i+1)+""));
         	Cheese.boolean1 = true;

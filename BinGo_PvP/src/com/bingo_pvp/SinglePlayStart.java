@@ -60,10 +60,7 @@ public class SinglePlayStart extends Activity {
 			int id = getResources().getIdentifier("imageView" + (i + 1), "id",
 					getPackageName());
 			ai[i / 5][i % 5] = (ImageView) findViewById(id);
-			// setImageResource
-			id = getResources().getIdentifier("p" + temp.get(i), "drawable",
-					getPackageName());
-			ai[i / 5][i % 5].setImageResource(id);
+			ai[i / 5][i % 5].setImageResource(R.drawable.unknow);
 		}
 	}
 
@@ -96,11 +93,10 @@ public class SinglePlayStart extends Activity {
 			id = getResources().getIdentifier("p" + temp.get(i), "drawable",
 					getPackageName());
 			Play[i / 5][i % 5].setImageResource(id);
+			
 		}
 	}
 
-	// 電腦等待時間
-	private boolean wait = true;
 	// 偵測玩家按下棋盤
 	OnClickListener click = new OnClickListener() {
 		@Override
@@ -187,6 +183,13 @@ public class SinglePlayStart extends Activity {
 				//SinglePlayStart.this.finish();			
 			}
 		}).show();
+		//移除按鈕偵聽
+		for(int i = 0;i<5;i++){
+			for(int j = 0;j<5;j++){
+				ai[i][j].setClickable(false);
+				Play[i][j].setClickable(false);
+			}
+		}
 		return true;
 	}
 }

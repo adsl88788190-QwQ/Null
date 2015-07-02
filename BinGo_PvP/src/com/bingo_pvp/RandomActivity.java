@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,27 +62,19 @@ public class RandomActivity extends Activity {
 				// TODO Auto-generated method stub
 				Cheese.al = al;
 				Cheese.boolean1 = true;
+				SaveCheese();
 			finish();
 			}
 		});
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.play, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public void SaveCheese(){
+    	ArrayList<String> al = Cheese.al;
+    	String str = al.get(0);
+    	for(int i = 1;i<al.size();i++)
+    		str += ","+al.get(i);    	
+    	SharedPreferences save = getSharedPreferences("Cheese",0);
+    	save.edit().putString("al", str).commit();
+    	save.edit().putBoolean("check", Cheese.boolean1).commit();
     }
 }
