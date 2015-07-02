@@ -22,7 +22,7 @@ public class Scorejpg {
         canvas.drawText("Score", 25 , 20, paint);
         paint.setColor(Color.RED);
         paint.setTextSize(20);
-        canvas.drawText(score, 35 , 40, paint);
+        canvas.drawText(score, 25 , 40, paint);
         canvas.save(Canvas.ALL_SAVE_FLAG);
         canvas.restore();
         return newbit;

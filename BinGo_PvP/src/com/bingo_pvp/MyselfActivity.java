@@ -53,7 +53,7 @@ public class MyselfActivity extends Activity {
 						al.add(str);
 					}
 					//設定完的鍵盤 存回
-					Cheese.al = al;
+					//Cheese.al = al;
 					//結束
 					finish();
 				}else{

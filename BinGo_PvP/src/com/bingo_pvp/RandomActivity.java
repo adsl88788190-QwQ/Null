@@ -7,8 +7,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -46,11 +45,17 @@ public class RandomActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				ArrayList<String> temp = new ArrayList<String>();
+				for(int i = 1;i<26;i++)
+					temp.add(i+"");
 				int t = new Random().nextInt(7);
 				for(;t>=0;t--)
-					Collections.shuffle(al);
+					Collections.shuffle(temp);
+				for(int i = 0;i<25;i++){
+					bt[i].setText(temp.get(i));
+				}
 				for(int i = 0;i<25;i++)
-					bt[i].setText(al.get(i));
+					al.set(i, temp.get(i));
 			}
 		});
        
@@ -74,6 +79,7 @@ public class RandomActivity extends Activity {
     	for(int i = 1;i<al.size();i++)
     		str += ","+al.get(i);    	
     	SharedPreferences save = getSharedPreferences("Cheese",0);
+    	save.edit().putString("al","").commit();
     	save.edit().putString("al", str).commit();
     	save.edit().putBoolean("check", Cheese.boolean1).commit();
     }
