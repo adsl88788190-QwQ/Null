@@ -10,6 +10,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Random;
 
+import android.R.string;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class creatroom extends Activity implements OnClickListener, OnTouchListe
 		Thread t = new Thread(readData);
 
 		// 啟動執行緒
-		//t.start();
+		t.start();
         
         
         /////
@@ -145,20 +146,18 @@ public class creatroom extends Activity implements OnClickListener, OnTouchListe
 		            	}	
 
 		            }
-			start.setText(tmp+"asd");
 			System.out.print(tmp);
 		}
 	};
 	private Runnable readData = new Runnable() {
  		public void run() {
- 			// server端的IP
- 			InetAddress serverIp;
-
+// 			InetAddress serverIp;
+ 			String serverip;
  			try {
- 				// 以內定(本機電腦端)IP為Server端
- 				serverIp = InetAddress.getByName("10.0.2.2");
+// 				serverIp = InetAddress.getByName("10.0.2.2");
  				int serverPort = 5050;
- 				clientSocket = new Socket(serverIp, serverPort);
+ 				serverip = "172.16.94.16";
+ 				clientSocket = new Socket(serverip, serverPort);
 
  				// 取得網路輸入串流
  				BufferedReader br = new BufferedReader(new InputStreamReader(

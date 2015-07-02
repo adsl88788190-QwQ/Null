@@ -45,7 +45,7 @@ public class server {
  
             // 呼叫創造新的使用者
             createNewPlayer(socket);
-        } catch (IOException e) {
+        } catch (IOException e) {      
  
         }
  
