@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -167,14 +168,19 @@ public class SinglePlayStart extends Activity {
 		//Dialog
 		AlertDialog.Builder builder = new Builder(SinglePlayStart.this);
 		builder.setTitle("賓果贏家");
-		
+		// win 
+		int win = Cheese.win;
+		//lose 
+		int lose = Cheese.lose;
 		//判斷勝負
 		if(AICheck.win() & PlayCheck.win()){//平手
 			builder.setMessage("你與電腦打成了平手!!!");
 		}else if(AICheck.win()){//AI win
 			builder.setMessage("電腦碾碎你了!!!!!!!");
+			lose += 1;
 		}else if(PlayCheck.win()){//Play win
 			builder.setMessage("你成功的擊敗了電腦!!!");
+			win += 1;
 		}else return false;
 		builder.setPositiveButton("確定。", new DialogInterface.OnClickListener() {
 			@Override
@@ -190,6 +196,10 @@ public class SinglePlayStart extends Activity {
 				Play[i][j].setClickable(false);
 			}
 		}
+		
+		SharedPreferences load = getSharedPreferences("Cheese",0);		
+		load.edit().putInt("win", win);
+		load.edit().putInt("lose", lose);
 		return true;
 	}
 }

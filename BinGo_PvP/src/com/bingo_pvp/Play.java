@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -55,10 +56,8 @@ public class Play extends Activity {
 				Scorejpg scorejpg = new Scorejpg();
 				Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.black);
 				bitmap = bitmap.createScaledBitmap(bitmap, 100, 100,true);
-				bitmap = scorejpg.createDieImage(bitmap, 100, 100, (int)(Math.random()*1000)+"");
-				
-				
-				
+				String str = Cheese.win +"勝 "+Cheese.lose+" 敗";
+				bitmap = scorejpg.createDieImage(bitmap, 100, 100, str);			
 				Intent intent=new Intent(Intent.ACTION_SEND);
 				intent.setType("image/jpg");
 				Uri uri = Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, null,null));
@@ -72,6 +71,10 @@ public class Play extends Activity {
 		});
         //測試用ImageView
         imageView = (ImageView)findViewById(R.id.imageView);
+        //
+        SharedPreferences load = getSharedPreferences("Cheese", 0);
+        Cheese.win = load.getInt("win", 0);
+        Cheese.lose = load.getInt("lose", 0);
     }
 
 
