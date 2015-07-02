@@ -54,7 +54,8 @@ public class RandomActivity extends Activity {
 				for(int i = 0;i<25;i++){
 					bt[i].setText(temp.get(i));
 				}
-				Cheese.al = al;
+				for(int i = 0;i<25;i++)
+					al.set(i, temp.get(i));
 			}
 		});
        
